@@ -1,2 +1,1 @@
-flask
-face_recognition
+Flask
