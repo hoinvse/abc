@@ -1,0 +1,8 @@
+flask
+face_recognition
+dlib
+threading
+time
+datetime
+sqlite3
+wtforms
