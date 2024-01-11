@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+    <!-- Sử dụng Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Attendance System</h1>
+                        <form method="post" action="/" class="mb-4">
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                {{ form.name.label }} 
+                                {{ form.name(size=20, class="form-control") }}
+                            </div>
+                            <button type="submit" class="btn btn-primary">Thêm Khuôn Mặt</button>
+                        </form>
+                        <hr>
+                        <form action="/check_attendance" method="get">
+                            <button type="submit" class="btn btn-success btn-block">Điểm Danh</button>
+                        </form>
+                        <form action="/attendance_log" method="get">
+                            <button type="submit" class="btn btn-info btn-block">Xem Danh Sách Đã Điểm Danh</button>
+                        </form>
+                        <hr>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <ul class="list-unstyled">
+                                    {% for message in messages %}
+                                        <li class="alert alert-success">{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sử dụng Bootstrap JS và Popper.js cho các chức năng tương tác -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
